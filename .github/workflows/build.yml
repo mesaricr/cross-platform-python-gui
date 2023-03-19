@@ -53,6 +53,7 @@ jobs:
         asset_content_type: application/x-bzip2
 
   windows:
+    permissions: write-all
     runs-on: windows-latest
 
     steps:
