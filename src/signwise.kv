@@ -1,0 +1,399 @@
+#:kivy 2.1.0
+
+Manager:
+
+<Manager>:
+    MDBottomNavigationItem:
+        name: 'search page'
+        text: 'Suche'
+        icon: 'magnify'
+
+        SearchPage:
+    
+    MDBottomNavigationItem:
+        name: 'collection page'
+        text: 'Sammlung'
+        icon: 'view-day-outline'
+        on_tab_press: collection_page.update()
+
+        CollectionPage:
+            id: collection_page
+    
+    MDBottomNavigationItem:
+        name: 'quiz page'
+        text: 'Quiz'
+        icon: 'help-box'
+        on_tab_press: quiz_page.update()
+
+        QuizPage:
+            id: quiz_page
+
+<SearchPage>:
+    id: search_page
+    orientation: 'vertical'
+    TopRibbon:
+        id: top_ribbon
+    AnchorLayout:
+        size_hint: 1, None
+        height: '50dp'
+        anchor_x: 'left'
+        anchor_y: 'center'
+        Label:
+            id: gebaerde_label
+            text: "Gebärde"
+            text_size: 0.9*self.width, None
+            font_size: '30dp'
+            color: 1, 0.21875, 0.109375, 1
+            bold: True
+            halign: 'left'
+            valign: 'middle'
+    StackLayout:
+        id: kategories
+        spacing: '5dp'
+        size_hint: 0.9, None
+        height: self.minimum_height
+        pos_hint: { 'center_x': 0.5 }
+    AnchorLayout:
+        id: video_wrapper
+        Video:
+            size_hint: 1, 0.9
+            id: video
+            allow_fullscreen: False
+            allow_stretch: True
+            volume: 0
+            source: ''
+    BoxLayout:
+        id: beispiel
+        orientation: 'horizontal'
+        size_hint: 0.9, None
+        size_hint_max_x: '500dp'
+        height: '60dp'
+        pos_hint: { 'center_x': 0.5 }
+        opacity: 0
+        MDLabel:
+            id: example_label
+            text: ''
+            size_hint_min_x: '230dp'
+            color: (0, 0, 0, 1)
+        MDIconButton:
+            icon: "play-circle-outline"
+            icon_size: '32dp'
+            pos_hint: {"center_x": .5, "center_y": .5}
+            on_press: root.play_example()
+    BoxLayout:
+        id: save_in_unit
+        orientation: 'horizontal'
+        size_hint: 0.9, None
+        size_hint_max_x: '500dp'
+        height: '60dp'
+        pos_hint: { 'center_x': 0.5 }
+        opacity: 0
+        MDRoundFlatButton:
+            id: dropdown
+            pos_hint: { 'center_x': 0.5 , 'center_y': 0.5 }
+            padding: [(searching_word.width-self.children[0].width)/2, 0]
+            text: app.data.unit
+            disabled: True
+            on_release: root.unit_menu.open()
+        MDIconButton:
+            icon: "plus-box-multiple"
+            icon_size: '32dp'
+            pos_hint: {"center_x": .5, "center_y": .5}
+            on_release: root.add_to_learning_unit()
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint: 0.9, None
+        size_hint_max_x: '500dp'
+        height: '60dp'
+        pos_hint: { 'center_x': 0.5 }
+        MDTextField:
+            id: searching_word
+            hint_text: 'Suchbegriff für Gebärde eingeben'
+            pos_hint: { 'center_x': 0.5 , 'center_y': 0.5 }
+            on_focus: root.on_focus(self)
+            mode: 'round'
+            on_text_validate: root.search_signwise(self.text)
+        MDIconButton:
+            icon: "magnify"
+            icon_size: '32dp'
+            pos_hint: {"center_x": .5, "center_y": .5}
+            on_release: root.search_signwise(searching_word.text)
+    Label:
+        size_hint: 1, None
+        height: top_ribbon.height
+
+<CollectionPage>:
+    orientation: 'vertical'
+    TopRibbon:
+        id: top_ribbon
+    ScreenManager:
+        id: manager
+        Screen:
+            name: 'units screen'
+            MDScrollView:
+                MDList:
+                    id: units_list
+                    root: root
+                    renaming: False
+        Screen:
+            name: 'words screen'
+            MDScrollView:
+                MDList:
+                    id: words_list
+                    root: root
+            AnchorLayout:
+                anchor_x: 'right'
+                anchor_y: 'bottom'
+                padding: ['15dp']
+                MDIconButton:
+                    icon: 'arrow-u-left-bottom'
+                    icon_size: '32dp'
+                    on_press: root.back()
+                    md_bg_color: (0.0234375, 0.73046875, 0.921875, 1)
+        Screen:
+            name: 'word video'
+            BoxLayout:
+                orientation: 'vertical'    
+                AnchorLayout:
+                    size_hint: 1, None
+                    height: '50dp'
+                    anchor_x: 'left'
+                    anchor_y: 'center'
+                    Label:
+                        id: gebaerde_label
+                        text: "Gebärde"
+                        text_size: 0.9*self.width, None
+                        font_size: '30dp'
+                        color: 1, 0.21875, 0.109375, 1
+                        bold: True
+                        halign: 'left'
+                        valign: 'middle'
+                AnchorLayout:
+                    id: video_wrapper
+                    Video:
+                        size_hint: 1, 0.9
+                        id: video
+                        allow_fullscreen: False
+                        allow_stretch: True
+                        volume: 0
+                        source: ''
+                BoxLayout:
+                    id: beispiel
+                    orientation: 'horizontal'
+                    size_hint: 0.9, None
+                    size_hint_max_x: '500dp'
+                    height: '60dp'
+                    pos_hint: { 'center_x': 0.5 }
+                    MDLabel:
+                        id: example_label
+                        text: ''
+                        size_hint_min_x: '230dp'
+                        color: (0, 0, 0, 1)
+                    MDIconButton:
+                        icon: "play-circle-outline"
+                        icon_size: '32dp'
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        on_press: root.play_example()
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint: 0.9, None
+                    height: '60dp'
+                    pos_hint: { 'center_x': 0.5 }
+                    AnchorLayout:
+                        anchor_x: 'left'
+                        MDRoundFlatButton:
+                            text: 'Zurück'
+                            on_release: root.open_last_word()
+                    AnchorLayout:
+                        anchor_x: 'right'
+                        MDRoundFlatButton:
+                            text: 'Weiter'
+                            on_release: root.open_next_word()
+                Label:
+                    size_hint: 1, None
+                    height: '102dp'
+            AnchorLayout:
+                anchor_x: 'right'
+                anchor_y: 'bottom'
+                padding: ['15dp']
+                MDIconButton:
+                    icon: 'arrow-u-left-bottom'
+                    icon_size: '32dp'
+                    on_press: root.back()
+                    md_bg_color: (0.0234375, 0.73046875, 0.921875, 1)
+
+
+<QuizPage>:
+    orientation: 'vertical'
+    TopRibbon:
+        id: top_ribbon
+    ScreenManager:
+        id: manager
+        Screen:
+            name: 'units screen'
+            MDScrollView:
+                MDList:
+                    id: units_list
+        Screen:
+            name: 'quiz screen'
+            BoxLayout:
+                orientation: 'vertical'    
+                AnchorLayout:
+                    size_hint: 0.9, None
+                    height: '50dp'
+                    pos_hint: { 'center_x': 0.5 }
+                    MDProgressBar:
+                        id: progressbar
+                        size_hint: 1, None
+                        height: '10dp'
+                AnchorLayout:
+                    id: video_wrapper
+                    Video:
+                        size_hint: 1, 0.9
+                        id: video
+                        allow_fullscreen: False
+                        allow_stretch: True
+                        volume: 0
+                        source: ''
+                MDLabel:
+                    id: answer_label
+                    size_hint: 0.9, None
+                    size_hint_max_x: '500dp'
+                    height: '60dp'
+                    pos_hint: { 'center_x': 0.5 }
+                    text: ''
+                    size_hint_min_x: '230dp'
+                    color: (0, 0, 0, 1)
+                    halign: 'center'
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint: 0.9, None
+                    height: '60dp'
+                    pos_hint: { 'center_x': 0.5 }
+                    AnchorLayout:
+                        anchor_x: 'left'
+                        MDRoundFlatButton:
+                            id: last_button
+                            text: 'Zurück'
+                            on_release: root.open_last_word()
+                    AnchorLayout:
+                        anchor_x: 'right'
+                        MDRoundFlatButton:
+                            id: next_button
+                            text: 'Weiter'
+                            on_release: root.open_next_word()
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint: 0.9, None
+                    size_hint_max_x: '500dp'
+                    height: '60dp'
+                    pos_hint: { 'center_x': 0.5 }
+                    MDTextField:
+                        id: answer
+                        hint_text: 'Bedeutung der Gebärden eingeben'
+                        pos_hint: { 'center_x': 0.5 , 'center_y': 0.5 }
+                        mode: 'round'
+                        on_text_validate: root.check_answer(self.text)
+                Label:
+                    size_hint: 1, None
+                    height: '102dp'
+            AnchorLayout:
+                anchor_x: 'right'
+                anchor_y: 'bottom'
+                padding: ['15dp']
+                MDIconButton:
+                    id: back_button
+                    icon: 'arrow-u-left-bottom'
+                    icon_size: '32dp'
+                    on_press: root.back()
+                    md_bg_color: (0.0234375, 0.73046875, 0.921875, 1)
+
+<-UnitDropDown>:
+    canvas:
+        # draw a background of red. This will be the border
+        Color:
+            rgba: (1,0,0,1)
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [self.height/2,]
+            
+        # draw over the above except for 5 pixels around edges, leaving the red border showing
+        Color:
+            rgba: (0.5,0.5,0.5,1) if self.state == 'down' else self.background_color
+        RoundedRectangle:
+            pos: self.x+5, self.y+5
+            size: self.width-10, self.height-10
+            radius: [(self.height-10)/2,]
+            
+        # draw the text
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            texture: self.texture
+            size: self.texture_size
+            pos: int(self.center_x - self.texture_size[0] / 2.), int(self.center_y - self.texture_size[1] / 2.)
+    on_release: dropdown.open
+    background_color: 1, 1, 1, 1
+    color: 0, 0, 0, 1
+    background_normal: ''
+    background_down: ''
+    DropDown:
+        id: dropdown
+
+<VideoTab>:
+    background_color: 0.0234375, 0.73046875, 0.921875, 1
+    background_normal: ''
+    background_down: ''
+    video: ''
+    beispiel: ''
+    beispiel_satz: ''
+    on_press: self.parent.parent.play_video(self)
+    on_release: self.release(self)
+    always_release: True
+    size_hint: None, None
+    size: self.texture_size
+    padding: '5dp', '3dp'
+
+<PlayButton>:
+    canvas:
+        Color:
+            rgba: 0, 0, 0, 0.5 if state=='normal' and self.parent.ids.video.state in ['pause', 'stop'] else 0, 0, 0, 0
+        Line:
+            circle: root.center_x, root.center_y, 0.25*min(self.width, self.height)
+            width: 0.03*min(self.width, self.height)
+    on_press: self.parent.parent.play_video(self)
+
+<TopRibbon>:
+    orientation: 'horizontal'
+    size_hint: 1, None
+    height: '42dp'
+    Image:
+        source: "ribbon.png"
+        allow_stretch: True
+        keep_ratio: False
+
+<SwipeToDeleteItem>:
+    size_hint_y: None
+    height: content.height
+    radius: 0
+    ripple_behavior: True
+
+    MDCardSwipeLayerBox:
+        padding: '8dp'
+        BoxLayout:
+            id: back
+            orientation: 'horizontal'
+            MDIconButton:
+                icon: 'trash-can'
+                pos_hint: {"center_y": .5}
+                on_release: root.remove_unit(root)
+
+    MDCardSwipeFrontBox:
+        id: front
+        radius: 0
+        OneLineListItem:
+            id: content
+            text: root.text
+            on_release: root.on_release(self)
+            disabled: False

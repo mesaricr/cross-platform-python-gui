@@ -1,0 +1,58 @@
+{
+    "Familie": {
+        "Bruder": [
+            "https://signsuisse.sgb-fss.ch/fileadmin/signsuisse_ressources/videos/7975750C-BCE6-168C-560B1BFD9DF94216.mp4",
+            "https://signsuisse.sgb-fss.ch/fileadmin/signsuisse_ressources/videos/71240809-CD7E-11C8-D58D7F8A34908FB1.mp4",
+            "Mein Bruder ist bereits in der Lehre.",
+            0
+        ],
+        "Familie": [
+            "https://signsuisse.sgb-fss.ch/fileadmin/signsuisse_ressources/videos/D649B776-9739-C993-6C775C0A578DF7A1.mp4",
+            "https://signsuisse.sgb-fss.ch/fileadmin/signsuisse_ressources/videos/D649C091-E7AD-8960-7E8A78465847090E.mp4",
+            "Meine Familie ist reich.",
+            0
+        ],
+        "Haus": [
+            "https://signsuisse.sgb-fss.ch/fileadmin/signsuisse_ressources/videos/D12B0794-B7A2-7F8A-437891F2418B9700.mp4",
+            "https://signsuisse.sgb-fss.ch/fileadmin/signsuisse_ressources/videos/D12B1573-0BE1-C289-CB53916B4458C7F6.mp4",
+            "Ich sehe, dass dieses Haus sehr alt ist.",
+            0
+        ],
+        "Hund": [
+            "https://signsuisse.sgb-fss.ch/fileadmin/signsuisse_ressources/videos/D3BDCFC5-D832-79A8-217FEE3471811DFF.mp4",
+            "https://signsuisse.sgb-fss.ch/fileadmin/signsuisse_ressources/videos/D3BDE18B-A40F-6008-E1D7EC7DCFD9BEB3.mp4",
+            "Der Hund liebt es zu bellen.",
+            0
+        ],
+        "Katze": [
+            "https://signsuisse.sgb-fss.ch/fileadmin/signsuisse_ressources/videos/701662F9-906D-50C5-1A6BA1106593CE11.mp4",
+            "https://signsuisse.sgb-fss.ch/fileadmin/signsuisse_ressources/videos/FC2FC91D-BAC8-0209-FB7F700269607699.mp4",
+            "Gestern habe ich f\u00fcnf s\u00fcsse Katzen bekommen.",
+            0
+        ],
+        "Mutter": [
+            "https://signsuisse.sgb-fss.ch/fileadmin/signsuisse_ressources/videos/686BA87E-A4FE-DCF6-BEF82BEC1CB563FA.mp4",
+            "https://signsuisse.sgb-fss.ch/fileadmin/signsuisse_ressources/videos/686E77AE-DCA5-EAEC-D2B3A70F061BAC92.mp4",
+            "Diese Mutter beaufsichtigt die Kinder",
+            0
+        ],
+        "Schwester": [
+            "https://signsuisse.sgb-fss.ch/fileadmin/signsuisse_ressources/videos/6CAF5958-E864-1B82-21CC6AF574E0170D.mp4",
+            "https://signsuisse.sgb-fss.ch/fileadmin/signsuisse_ressources/videos/6CB9D317-B8F2-7169-7D606A4CBEC50D95.mp4",
+            "Meine Schwester hat rote Haare.",
+            0
+        ],
+        "Vater": [
+            "https://signsuisse.sgb-fss.ch/fileadmin/signsuisse_ressources/videos/BFD5E4C1-FD09-18C5-EED4429B11A22A93.mp4",
+            "https://signsuisse.sgb-fss.ch/fileadmin/signsuisse_ressources/videos/BFD5E9BD-D204-0958-055CE9122B397C04.mp4",
+            "Mein Vater ist schon neunzig Jahre alt.",
+            0
+        ],
+        "gemeinsam": [
+            "https://signsuisse.sgb-fss.ch/fileadmin/signsuisse_ressources/videos/225D91E5-9385-C911-643A3923BCDD7F63.mp4",
+            "https://signsuisse.sgb-fss.ch/fileadmin/signsuisse_ressources/videos/EC4F3A93-CFD1-5543-61747BA12C6C767E.mp4",
+            "Meine Familie hat letzte Woche gemeinsam Geburtstag gefeiert.",
+            0
+        ]
+    }
+}
