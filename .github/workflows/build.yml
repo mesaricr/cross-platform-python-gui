@@ -99,6 +99,7 @@ jobs:
         asset_content_type: application/zip
 
   mac:
+    permissions: write-all
     runs-on: macos-latest
 
     steps:
