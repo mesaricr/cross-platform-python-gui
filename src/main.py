@@ -449,19 +449,10 @@ class SignWiseApp(MDApp):
         global app_data
         return app_data
 
-#home = SignWiseApp()
 
 #if __name__ == '__main__':
-#    home.run()
+    home = SignWiseApp()
+    home.run()
 
-#class MyApp(App):
-#
-#    def build(self):
-#        return Label(text='Hello world!')
-
-
-if __name__ == '__main__':
-    #MyApp().run()
-    SignWiseApp().run()
 
 
