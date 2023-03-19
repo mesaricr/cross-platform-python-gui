@@ -450,7 +450,7 @@ class SignWiseApp(MDApp):
         return app_data
 
 
-#if __name__ == '__main__':
+if __name__ == '__main__':
     home = SignWiseApp()
     home.run()
 
